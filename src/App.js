@@ -1,17 +1,36 @@
-function Food({name}) {
+function Food({name, picture}) {
   return(    
-    <h3>I like to eat {name}!</h3>
+    <div>
+      <h3>I like {name}</h3>
+      <img src={picture} />
+    </div>
   );
 }
+
+const foodILike = [
+  {
+    name: 'borshch',
+    image: ''
+  },
+  {
+    name: 'chease',
+    image: ''
+  },
+  {
+    name: 'beaf',
+    image: ''
+  },
+  {
+    name: 'pasta',
+    image: ''
+  }
+]
 
 function App() {
   return (
     <div>
       <h1>Hi there!</h1>
-      <Food name='borshch' />
-      <Food name='butter' />
-      <Food name='beaf' />
-      <Food name='pasta' />
+      {foodILike.map(dish => <Food name={dish.name} picture={dish.image} />)}
     </div>
   );
 }
