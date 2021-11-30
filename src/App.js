@@ -27,18 +27,16 @@ class App extends React.Component {
   renderMovie(movie) {
     console.log(movie);
 
-    return(
-      <div className="movies">
-        <Movie 
-          key={movie.id}
-          id={movie.id} 
-          year={movie.year} 
-          title={movie.title} 
-          summary={movie.summary} 
-          poster={movie.medium_cover_image}
-          genres={movie.genres}
-        />
-      </div>      
+    return(      
+      <Movie 
+        key={movie.id}
+        id={movie.id} 
+        year={movie.year} 
+        title={movie.title} 
+        summary={movie.summary} 
+        poster={movie.medium_cover_image}
+        genres={movie.genres}
+      />   
     );
   }
 
@@ -48,10 +46,17 @@ class App extends React.Component {
       <section className="container">
         {
           isLoading 
-            ? <div className="loader">
-              <span className="locader__text">Loading...</span>
-            </div>
-            : movies.map(movie => this.renderMovie(movie))
+            ? (
+              <div className="loader">
+                <span className="locader__text">Loading...</span>
+              </div>              
+            ) : (
+              <div className="movies">
+                {
+                  movies.map(movie => this.renderMovie(movie))
+                }
+              </div>
+            )
         }
       </section>
     );
