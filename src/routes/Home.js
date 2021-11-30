@@ -24,8 +24,6 @@ class Home extends React.Component {
   }
 
   renderMovie(movie) {
-    console.log(movie);
-
     return(      
       <Movie 
         key={movie.id}
